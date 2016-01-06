@@ -1,10 +1,6 @@
 # Omnipay: Authorize.Net
 
-**Authorize.Net driver for the Omnipay PHP payment processing library**
-
-[![Build Status](https://travis-ci.org/thephpleague/omnipay-authorizenet.png?branch=master)](https://travis-ci.org/thephpleague/omnipay-cardknox)
-[![Latest Stable Version](https://poser.pugx.org/omnipay/authorizenet/version.png)](https://packagist.org/packages/omnipay/cardknox)
-[![Total Downloads](https://poser.pugx.org/omnipay/authorizenet/d/total.png)](https://packagist.org/packages/omnipay/cardknox)
+**Cardknox driver for the Omnipay PHP payment processing library**
 
 [Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP 5.3+. This package implements Cardknox support for Omnipay.
@@ -17,7 +13,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "dovid/omnipay-cardknox": "~2.0"
+        "dovid/omnipay-cardknox": "1.0"
     }
 }
 ```
