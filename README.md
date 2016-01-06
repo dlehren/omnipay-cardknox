@@ -1,4 +1,4 @@
-# Omnipay: Authorize.Net
+# Omnipay: Cardknox
 
 **Cardknox driver for the Omnipay PHP payment processing library**
 
