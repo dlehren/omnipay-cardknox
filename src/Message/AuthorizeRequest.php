@@ -7,7 +7,7 @@ namespace Omnipay\Cardknox\Message;
  */
 class AuthorizeRequest extends AbstractRequest
 {
-    protected $action = 'AUTH_ONLY';
+    protected $action = 'cc:sale';
 
     public function getData()
     {
@@ -15,16 +15,11 @@ class AuthorizeRequest extends AbstractRequest
         $this->getCard()->validate();
 
         $data = $this->getBaseData();
-        $data['x_customer_ip'] = $this->getClientIp();
-        $data['x_card_num'] = $this->getCard()->getNumber();
-        $data['x_exp_date'] = $this->getCard()->getExpiryDate('my');
-        $data['x_card_code'] = $this->getCard()->getCvv();
-        $data['x_cust_id'] = $this->getCustomerId();
-
-        if ($this->getTestMode()) {
-            $data['x_test_request'] = 'TRUE';
-        }
-
+        $data['xIP'] = $this->getClientIp();
+        $data['xCardNum'] = $this->getCard()->getNumber();
+        $data['xExp'] = $this->getCard()->getExpiryDate('my');
+        $data['xCVV'] = $this->getCard()->getCvv();
+        
         return array_merge($data, $this->getBillingData());
     }
 }

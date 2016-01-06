@@ -17,45 +17,23 @@ class Gateway extends AbstractGateway
     public function getDefaultParameters()
     {
         return array(
-            'apiLoginId'        => '',
-            'transactionKey'    => '',
-            'testMode'          => false,
-            'developerMode'     => false,
-            'liveEndpoint'      => 'https://secure2.authorize.net/gateway/transact.dll',
-            'developerEndpoint' => 'https://test.authorize.net/gateway/transact.dll',
+            'cardknoxKey'    => '',
+            'liveEndpoint'      => 'https://x1.cardknox.com/',
+           
         );
     }
 
-    public function getApiLoginId()
+    public function getCardknoxKey()
     {
-        return $this->getParameter('apiLoginId');
+        return $this->getParameter('cardknoxKey');
     }
 
-    public function setApiLoginId($value)
+    public function setCardknoxKey($value)
     {
-        return $this->setParameter('apiLoginId', $value);
+        return $this->setParameter('cardknoxKey', $value);
     }
 
-    public function getTransactionKey()
-    {
-        return $this->getParameter('transactionKey');
-    }
-
-    public function setTransactionKey($value)
-    {
-        return $this->setParameter('transactionKey', $value);
-    }
-
-    public function getDeveloperMode()
-    {
-        return $this->getParameter('developerMode');
-    }
-
-    public function setDeveloperMode($value)
-    {
-        return $this->setParameter('developerMode', $value);
-    }
-
+    
     public function setEndpoints($endpoints)
     {
         $this->setParameter('liveEndpoint', $endpoints['live']);
@@ -72,16 +50,7 @@ class Gateway extends AbstractGateway
         return $this->setParameter('liveEndpoint', $value);
     }
 
-    public function getDeveloperEndpoint()
-    {
-        return $this->getParameter('developerEndpoint');
-    }
-
-    public function setDeveloperEndpoint($value)
-    {
-        return $this->setParameter('developerEndpoint', $value);
-    }
-
+   
     public function authorize(array $parameters = array())
     {
         return $this->createRequest('\Omnipay\Cardknox\Message\AuthorizeRequest', $parameters);
