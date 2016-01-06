@@ -1,11 +1,11 @@
 <?php
 
-namespace Omnipay\AuthorizeNet\Message;
+namespace Omnipay\Cardknox\Message;
 
 /**
- * Authorize.Net Refund Request
+ * Cardknox Refund Request
  */
-class AIMRefundRequest extends AbstractRequest
+class RefundRequest extends AbstractRequest
 {
     protected $action = 'CREDIT';
 

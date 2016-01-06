@@ -1,9 +1,9 @@
 <?php
 
-namespace Omnipay\AuthorizeNet\Message;
+namespace Omnipay\Cardknox\Message;
 
 /**
- * Authorize.Net Abstract Request
+ * Cardknox Abstract Request
  */
 
 use Omnipay\Common\Message\AbstractRequest as CommonAbstractRequest;
@@ -86,7 +86,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
     }
 
     /**
-     * Base data used only for the AIM API.
+     * Base data used only for the  API.
      */
     protected function getBaseData()
     {
@@ -153,7 +153,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
     {
         $httpResponse = $this->httpClient->post($this->getEndpoint(), null, $data)->send();
 
-        return $this->response = new AIMResponse($this, $httpResponse->getBody());
+        return $this->response = new Response($this, $httpResponse->getBody());
     }
 
     public function getEndpoint()

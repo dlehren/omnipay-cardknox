@@ -1,15 +1,15 @@
 <?php
 
-namespace Omnipay\AuthorizeNet\Message;
+namespace Omnipay\Cardknox\Message;
 
 use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RequestInterface;
 use Omnipay\Common\Exception\InvalidResponseException;
 
 /**
- * Authorize.Net AIM Response
+ * Cardknox Response
  */
-class AIMResponse extends AbstractResponse
+class Response extends AbstractResponse
 {
     public function __construct(RequestInterface $request, $data)
     {

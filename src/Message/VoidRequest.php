@@ -1,11 +1,11 @@
 <?php
 
-namespace Omnipay\AuthorizeNet\Message;
+namespace Omnipay\Cardknox\Message;
 
 /**
- * Authorize.Net AIM Void Request
+ * Cardknox Void Request
  */
-class AIMVoidRequest extends AbstractRequest
+class VoidRequest extends AbstractRequest
 {
     protected $action = 'VOID';
 

@@ -1,17 +1,17 @@
 <?php
 
-namespace Omnipay\AuthorizeNet;
+namespace Omnipay\Cardknox;
 
 use Omnipay\Common\AbstractGateway;
 
 /**
- * Authorize.Net AIM Class
+ * Cardknox  Class
  */
-class AIMGateway extends AbstractGateway
+class Gateway extends AbstractGateway
 {
     public function getName()
     {
-        return 'Authorize.Net AIM';
+        return 'Cardknox';
     }
 
     public function getDefaultParameters()
@@ -84,26 +84,26 @@ class AIMGateway extends AbstractGateway
 
     public function authorize(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\AuthorizeNet\Message\AIMAuthorizeRequest', $parameters);
+        return $this->createRequest('\Omnipay\Cardknox\Message\AuthorizeRequest', $parameters);
     }
 
     public function capture(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\AuthorizeNet\Message\CaptureRequest', $parameters);
+        return $this->createRequest('\Omnipay\Cardknox\Message\CaptureRequest', $parameters);
     }
 
     public function purchase(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\AuthorizeNet\Message\AIMPurchaseRequest', $parameters);
+        return $this->createRequest('\Omnipay\Cardknox\Message\PurchaseRequest', $parameters);
     }
 
     public function void(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\AuthorizeNet\Message\AIMVoidRequest', $parameters);
+        return $this->createRequest('\Omnipay\Cardknox\Message\VoidRequest', $parameters);
     }
 
     public function refund(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\AuthorizeNet\Message\AIMRefundRequest', $parameters);
+        return $this->createRequest('\Omnipay\Cardknox\Message\RefundRequest', $parameters);
     }
 }

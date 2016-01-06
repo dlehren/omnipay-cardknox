@@ -1,9 +1,9 @@
 <?php
 
-namespace Omnipay\AuthorizeNet\Message;
+namespace Omnipay\Cardknox\Message;
 
 /**
- * Authorize.Net Capture Request
+ * Cardknox Capture Request
  */
 class CaptureRequest extends AbstractRequest
 {

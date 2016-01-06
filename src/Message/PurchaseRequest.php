@@ -1,11 +1,11 @@
 <?php
 
-namespace Omnipay\AuthorizeNet\Message;
+namespace Omnipay\Cardknox\Message;
 
 /**
- * Authorize.Net AIM Purchase Request
+ * Cardknox  Purchase Request
  */
-class AIMPurchaseRequest extends AIMAuthorizeRequest
+class PurchaseRequest extends AuthorizeRequest
 {
     protected $action = 'AUTH_CAPTURE';
 }
