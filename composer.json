@@ -15,12 +15,16 @@
     "authors": [
         {
             "name": "Dovid Ehrentrei",
-            "email": ""
+            "email": "dovidleibe@gmail.com"
         }
     ],
-    "autoload": {
-        "psr-4": { "Dlhren\\Omnipay-Cardknox\\" : "src/" }
-    },
+
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/dlehren/omnipay-cardknox"
+        }
+    ],
     "require": {
         "omnipay/common": "~2.0"
     },
