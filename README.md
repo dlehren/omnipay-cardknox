@@ -2,6 +2,9 @@
 
 **Cardknox driver for the Omnipay PHP payment processing library**
 
+[![Latest Stable Version](https://poser.pugx.org/dlehren/omnipay-cardknox/version.png)](https://packagist.org/packages/dlehren/omnipay-cardknox)
+[![Total Downloads](https://poser.pugx.org/dlehren/omnipay-cardknox/d/total.png)](https://packagist.org/packages/dlehren/omnipay-cardknox)
+
 [Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP 5.3+. This package implements Cardknox support for Omnipay.
 
@@ -13,7 +16,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "dovid/omnipay-cardknox": "1.0"
+        "dlehren/omnipay-cardknox": "1.0"
     }
 }
 ```
