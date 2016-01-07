@@ -19,7 +19,7 @@
         }
     ],
     "autoload": {
-        "psr-4": { "Omnipay\\Cardknox\\" : "src/" }
+        "psr-4": { "Dlehren\\Cardknox\\" : "src/" }
     },
 
     "require": {
