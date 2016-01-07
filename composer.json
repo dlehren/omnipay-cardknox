@@ -1,5 +1,5 @@
 {
-    "name": "dlhren/omnipay-Cardknox",
+    "name": "dlehren/omnipay-Cardknox",
     "type": "library",
     "description": "Cardknox gateway for the Omnipay payment processing library",
     "keywords": [
