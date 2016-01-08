@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\Cardknox\Message;
+namespace Dlehren\Cardknox\Message;
 
 /**
  * Cardknox  Purchase Request

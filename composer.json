@@ -18,6 +18,9 @@
             "email": "dovidleibe@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": { "Dlehren\\Cardknox\\" : "src/" }
+    },
 
     "require": {
         "omnipay/common": "~2.0"
