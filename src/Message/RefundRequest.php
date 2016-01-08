@@ -1,6 +1,6 @@
 <?php
 
-namespace Dlehren\Cardknox\Message;
+namespace Omnipay\Cardknox\Message;
 
 /**
  * Cardknox Refund Request

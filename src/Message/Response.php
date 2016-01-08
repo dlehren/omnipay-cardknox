@@ -1,6 +1,6 @@
 <?php
 
-namespace Dlehren\Cardknox\Message;
+namespace Omnipay\Cardknox\Message;
 
 use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RequestInterface;
