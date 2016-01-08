@@ -18,7 +18,7 @@ class Gateway extends AbstractGateway
     {
         return array(
             'cardknoxKey'    => '',
-            'liveEndpoint'      => 'https://x1.cardknox.com/',
+            'liveEndpoint'      => 'https://x1.cardknox.com/gateway',
            
         );
     }
