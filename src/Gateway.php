@@ -1,6 +1,6 @@
 <?php
 
-namespace Dlehren\Cardknox;
+namespace Omnipay\Cardknox;
 
 use Omnipay\Common\AbstractGateway;
 
