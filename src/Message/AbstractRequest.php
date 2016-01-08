@@ -15,14 +15,14 @@ abstract class AbstractRequest extends CommonAbstractRequest
      */
     const TRANSACTION_ID_PARAM = 'omnipay_transaction_id';
 
-    public function getApiLoginId()
+    public function getCardknoxKey()
     {
-        return $this->getParameter('apiLoginId');
+        return $this->getParameter('cardknoxKey');
     }
 
-    public function setApiLoginId($value)
+    public function setCardknoxKey($value)
     {
-        return $this->setParameter('apiLoginId', $value);
+        return $this->setParameter('cardknoxKey', $value);
     }
 
    
@@ -43,7 +43,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
     protected function getBaseData()
     {
         $data = array();
-        $data['xKey'] = $this->getApiLoginId();
+        $data['xKey'] = $this->getCardknoxKey();
         $data['xVersion'] = '4.5.4';
         $data['xSoftwareName'] = 'omnipay';
         $data['xSoftwareVersion'] = '1';
