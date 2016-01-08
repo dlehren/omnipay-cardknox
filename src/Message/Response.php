@@ -11,48 +11,55 @@ use Omnipay\Common\Exception\InvalidResponseException;
  */
 class Response extends AbstractResponse
 {
-    public function __construct(RequestInterface $request, $data)
-    {
-        $this->request = $request;
-        $this->data = explode('|,|', substr($data, 1, -1));
-
-        if (count($this->data) < 10) {
-            throw new InvalidResponseException();
-        }
-    }
-
+   
     public function isSuccessful()
     {
-        return '1' === $this->getCode();
+        return !isset($this->data['xError']);
     }
 
     public function getCode()
     {
-        return $this->data[0];
+        return $this->data['xResult'];
     }
 
     public function getReasonCode()
     {
-        return $this->data[2];
+        return $this->data['xStatus'];
     }
 
     public function getMessage()
     {
-        return $this->data[3];
+        if (!$this->isSuccessful()) {
+            return $this->data['xError'];
+        }
+        return null;
     }
-
     public function getAuthorizationCode()
     {
-        return $this->data[4];
+        return $this->data['xAuthCode'];
     }
 
     public function getAVSCode()
     {
-        return $this->data[5];
+        return $this->data['xAvsResultCode'];
     }
 
-    public function getTransactionReference()
+     public function getTransactionReference()
     {
-        return $this->data[6];
+        return $this->data['xRefNum'];
     }
+
+    public function getToken()
+    {
+        return $this->data['xToken'];
+    }
+
+    public function getCard()
+    {
+        if (isset($this->data['xMaskedCardNumber'])) {
+            return $this->data['xMaskedCardNumber'];
+        }
+        return null;
+    }
+
 }
