@@ -61,7 +61,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
         $data['xOrderID'] = $this->getTransactionId();
 
         // A custom field can be used to pass over the merchant site transaction ID.
-        $data[static::TRANSACTION_ID_PARAM] = $this->getTransactionId();
+        //$data[static::TRANSACTION_ID_PARAM] = $this->getTransactionId();
 
         $data['xDescription'] = $this->getDescription();
 
