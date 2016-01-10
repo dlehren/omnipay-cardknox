@@ -1,0 +1,36 @@
+{
+    "name": "dlehren/omnipay-cardknox",
+    "type": "library",
+    "description": "Cardknox gateway for the Omnipay payment processing library",
+    "keywords": [
+        "cardknox",
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment"
+    ],
+    "homepage": "https://github.com/dlehren/omnipay-cardknox",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dovid Ehrentrei",
+            "email": "dovidleibe@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Omnipay\\Cardknox\\" : "src/" }
+    },
+
+    "require": {
+        "omnipay/common": "~2.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "~2.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}
