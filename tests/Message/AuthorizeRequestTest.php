@@ -1,14 +1,14 @@
 <?php
 
-namespace Omnipay\AuthorizeNet\Message;
+namespace Omnipay\Cardknox\Message;
 
 use Omnipay\Tests\TestCase;
 
-class AIMAuthorizeRequestTest extends TestCase
+class AuthorizeRequestTest extends TestCase
 {
     public function setUp()
     {
-        $this->request = new AIMAuthorizeRequest($this->getHttpClient(), $this->getHttpRequest());
+        $this->request = new Dovid_CardknoxAuthorizeRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize(
             array(
                 'clientIp' => '10.0.0.1',

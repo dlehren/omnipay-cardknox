@@ -1,23 +1,23 @@
 <?php
 
-namespace Omnipay\AuthorizeNet\Message;
+namespace Omnipay\Cardknox\Message;
 
 use Omnipay\Tests\TestCase;
 
-class AIMResponseTest extends TestCase
+class ResponseTest extends TestCase
 {
     /**
      * @expectedException Omnipay\Common\Exception\InvalidResponseException
      */
     public function testConstructEmpty()
     {
-        $response = new AIMResponse($this->getMockRequest(), '');
+        $response = new Dovid_CardknoxResponse($this->getMockRequest(), '');
     }
 
     public function testAuthorizeSuccess()
     {
-        $httpResponse = $this->getMockHttpResponse('AIMAuthorizeSuccess.txt');
-        $response = new AIMResponse($this->getMockRequest(), $httpResponse->getBody());
+        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxAuthorizeSuccess.txt');
+        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertTrue($response->isSuccessful());
         $this->assertSame('2184493132', $response->getTransactionReference());
@@ -30,8 +30,8 @@ class AIMResponseTest extends TestCase
 
     public function testAuthorizeFailure()
     {
-        $httpResponse = $this->getMockHttpResponse('AIMAuthorizeFailure.txt');
-        $response = new AIMResponse($this->getMockRequest(), $httpResponse->getBody());
+        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxAuthorizeFailure.txt');
+        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertFalse($response->isSuccessful());
         $this->assertSame('0', $response->getTransactionReference());
@@ -44,8 +44,8 @@ class AIMResponseTest extends TestCase
 
     public function testCaptureSuccess()
     {
-        $httpResponse = $this->getMockHttpResponse('AIMCaptureSuccess.txt');
-        $response = new AIMResponse($this->getMockRequest(), $httpResponse->getBody());
+        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxCaptureSuccess.txt');
+        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertTrue($response->isSuccessful());
         $this->assertSame('2184494531', $response->getTransactionReference());
@@ -58,8 +58,8 @@ class AIMResponseTest extends TestCase
 
     public function testCaptureFailure()
     {
-        $httpResponse = $this->getMockHttpResponse('AIMCaptureFailure.txt');
-        $response = new AIMResponse($this->getMockRequest(), $httpResponse->getBody());
+        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxCaptureFailure.txt');
+        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertFalse($response->isSuccessful());
         $this->assertSame('0', $response->getTransactionReference());
@@ -72,8 +72,8 @@ class AIMResponseTest extends TestCase
 
     public function testPurchaseSuccess()
     {
-        $httpResponse = $this->getMockHttpResponse('AIMPurchaseSuccess.txt');
-        $response = new AIMResponse($this->getMockRequest(), $httpResponse->getBody());
+        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxPurchaseSuccess.txt');
+        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertTrue($response->isSuccessful());
         $this->assertSame('2184492509', $response->getTransactionReference());
@@ -86,8 +86,8 @@ class AIMResponseTest extends TestCase
 
     public function testPurchaseFailure()
     {
-        $httpResponse = $this->getMockHttpResponse('AIMPurchaseFailure.txt');
-        $response = new AIMResponse($this->getMockRequest(), $httpResponse->getBody());
+        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxPurchaseFailure.txt');
+        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertFalse($response->isSuccessful());
         $this->assertSame('0', $response->getTransactionReference());
@@ -100,9 +100,9 @@ class AIMResponseTest extends TestCase
 
     public function testRefundSuccess()
     {
-        $httpResponse = $this->getMockHttpResponse('AIMRefundSuccess.txt');
+        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxRefundSuccess.txt');
 
-        $response = new AIMResponse($this->getMockRequest(), $httpResponse->getBody());
+        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertTrue($response->isSuccessful());
         $this->assertSame('2184492509', $response->getTransactionReference());
@@ -114,8 +114,8 @@ class AIMResponseTest extends TestCase
 
     public function testRefundFailure()
     {
-        $httpResponse = $this->getMockHttpResponse('AIMRefundFailure.txt');
-        $response = new AIMResponse($this->getMockRequest(), $httpResponse->getBody());
+        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxRefundFailure.txt');
+        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertFalse($response->isSuccessful());
         $this->assertSame('0', $response->getTransactionReference());

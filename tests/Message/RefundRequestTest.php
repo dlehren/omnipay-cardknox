@@ -1,14 +1,14 @@
 <?php
 
-namespace Omnipay\AuthorizeNet\Message;
+namespace Omnipay\Cardknox\Message;
 
 use Omnipay\Tests\TestCase;
 
-class AIMRefundRequestTest extends TestCase
+class RefundRequestTest extends TestCase
 {
     public function setUp()
     {
-        $this->request = new AIMRefundRequest($this->getHttpClient(), $this->getHttpRequest());
+        $this->request = new Dovid_CardknoxRefundRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize(
             array(
                 'amount' => '12.00',

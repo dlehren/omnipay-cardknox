@@ -1,10 +1,10 @@
 <?php
 
-namespace Omnipay\AuthorizeNet;
+namespace Omnipay\Cardknox;
 
 use Omnipay\Tests\GatewayTestCase;
 
-class AIMGatewayTest extends GatewayTestCase
+class GatewayTest extends GatewayTestCase
 {
     protected $voidOptions;
 
@@ -12,7 +12,7 @@ class AIMGatewayTest extends GatewayTestCase
     {
         parent::setUp();
 
-        $this->gateway = new AIMGateway($this->getHttpClient(), $this->getHttpRequest());
+        $this->gateway = new Gateway($this->getHttpClient(), $this->getHttpRequest());
 
         $this->purchaseOptions = array(
             'amount' => '10.00',
@@ -31,7 +31,7 @@ class AIMGatewayTest extends GatewayTestCase
 
     public function testAuthorizeSuccess()
     {
-        $this->setMockHttpResponse('AIMAuthorizeSuccess.txt');
+        $this->setMockHttpResponse('AuthorizeSuccess.txt');
 
         $response = $this->gateway->authorize($this->purchaseOptions)->send();
 
@@ -42,7 +42,7 @@ class AIMGatewayTest extends GatewayTestCase
 
     public function testAuthorizeFailure()
     {
-        $this->setMockHttpResponse('AIMAuthorizeFailure.txt');
+        $this->setMockHttpResponse('Dovid_CardknoxAuthorizeFailure.txt');
 
         $response = $this->gateway->authorize($this->purchaseOptions)->send();
 
@@ -53,7 +53,7 @@ class AIMGatewayTest extends GatewayTestCase
 
     public function testCaptureSuccess()
     {
-        $this->setMockHttpResponse('AIMCaptureSuccess.txt');
+        $this->setMockHttpResponse('Dovid_CardknoxCaptureSuccess.txt');
 
         $response = $this->gateway->capture($this->captureOptions)->send();
 
@@ -64,7 +64,7 @@ class AIMGatewayTest extends GatewayTestCase
 
     public function testCaptureFailure()
     {
-        $this->setMockHttpResponse('AIMCaptureFailure.txt');
+        $this->setMockHttpResponse('Dovid_CardknoxCaptureFailure.txt');
 
         $response = $this->gateway->capture($this->captureOptions)->send();
 
@@ -75,7 +75,7 @@ class AIMGatewayTest extends GatewayTestCase
 
     public function testPurchaseSuccess()
     {
-        $this->setMockHttpResponse('AIMPurchaseSuccess.txt');
+        $this->setMockHttpResponse('Dovid_CardknoxPurchaseSuccess.txt');
 
         $response = $this->gateway->purchase($this->purchaseOptions)->send();
 
@@ -86,7 +86,7 @@ class AIMGatewayTest extends GatewayTestCase
 
     public function testPurchaseFailure()
     {
-        $this->setMockHttpResponse('AIMPurchaseFailure.txt');
+        $this->setMockHttpResponse('Dovid_CardknoxPurchaseFailure.txt');
 
         $response = $this->gateway->purchase($this->purchaseOptions)->send();
 
@@ -97,7 +97,7 @@ class AIMGatewayTest extends GatewayTestCase
 
     public function testVoidSuccess()
     {
-        $this->setMockHttpResponse('AIMVoidSuccess.txt');
+        $this->setMockHttpResponse('Dovid_CardknoxVoidSuccess.txt');
 
         $response = $this->gateway->void($this->voidOptions)->send();
 
@@ -108,7 +108,7 @@ class AIMGatewayTest extends GatewayTestCase
 
     public function testVoidFailure()
     {
-        $this->setMockHttpResponse('AIMVoidFailure.txt');
+        $this->setMockHttpResponse('Dovid_CardknoxVoidFailure.txt');
 
         $response = $this->gateway->void($this->voidOptions)->send();
 
