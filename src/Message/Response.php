@@ -19,6 +19,7 @@ class Response extends AbstractResponse
    
     public function isSuccessful()
     {
+
         return empty($this->data['xError']);
     }
 

@@ -7,8 +7,9 @@ namespace Omnipay\Cardknox\Message;
  */
 class RefundRequest extends AbstractRequest
 {
-    protected $action = 'cc:refund';
 
+    protected $action = 'cc:refund';
+    
     public function getData()
     {
         $data = $this->getBaseData('RefundTransaction');

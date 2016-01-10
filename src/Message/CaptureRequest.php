@@ -7,6 +7,7 @@ namespace Omnipay\Cardknox\Message;
  */
 class CaptureRequest extends AbstractRequest
 {
+
     protected $action = 'cc:capture';
 
     public function getData()
