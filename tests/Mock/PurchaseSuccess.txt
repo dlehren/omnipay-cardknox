@@ -8,4 +8,5 @@ Content-Length: 347
 Cache-Control: private, must-revalidate, max-age=0
 Expires: Tue, 01 Jan 1980 00:00:00 GMT
 
-|1|,|1|,|1|,|This transaction has been approved.|,|JE6JM1|,|Y|,|2184492509|,|12345|,|first purchase|,|1.00|,|CC|,|auth_capture|,||,|fds|,|fds|,||,||,||,||,||,||,||,||,||,||,||,||,||,||,||,||,||,||,||,||,||,||,|35951A3F0A91940575132EA09CA1DC31|,|P|,|2|,||,||,||,||,||,||,||,||,||,||,|XXXX1111|,|Visa|,||,||,||,||,||,||,||,||,||,||,||,||,||,||,||,||
+xResult=A&xStatus=Approved&xError=&xRefNum=123456789&xAuthCode=230809&xBatch=347&xAvsResultCode=YYY&xAvsResult=Address%3a+Match+%26+5+Digit+Zip%3a+Match&xCvvResultCode=M&xCvvResult=Match&xAuthAmount=10.00&xToken=f0b84a5b181749b4b0d77f6291a753ab&xMaskedCardNumber=4xxxxxxxxxxx2224&xName=Longbob+Longsen
+

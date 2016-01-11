@@ -8,11 +8,11 @@ class RefundRequestTest extends TestCase
 {
     public function setUp()
     {
-        $this->request = new Dovid_CardknoxRefundRequest($this->getHttpClient(), $this->getHttpRequest());
+        $this->request = new RefundRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize(
             array(
                 'amount' => '12.00',
-                'transactionReference' => '60O2UZ',
+                'transactionReference' => '123456789',
                 'currency' => 'USD',
                 'card' => $this->getValidCard(),
             )
@@ -25,9 +25,9 @@ class RefundRequestTest extends TestCase
 
         $card = $this->getValidCard();
 
-        $this->assertSame('CREDIT', $data['x_type']);
-        $this->assertSame('60O2UZ', $data['x_trans_id']);
-        $this->assertSame($card['number'], $data['x_card_num']);
-        $this->assertSame('12.00', $data['x_amount']);
+        $this->assertSame('cc:refund', $data['xCommand']);
+        $this->assertSame('123456789', $data['xRefNum']);
+        $this->assertSame($card['number'], $data['xCardNum']);
+        $this->assertSame('12.00', $data['xAmount']);
     }
 }

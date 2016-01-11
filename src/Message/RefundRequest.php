@@ -16,10 +16,10 @@ class RefundRequest extends AbstractRequest
 
         $this->validate('amount', 'transactionReference');
 
-        $data['x_trans_id'] = $this->getTransactionReference();
-        $data['x_card_num'] = $this->getCard()->getNumber();
-        $data['x_exp_date'] = $this->getCard()->getExpiryDate('my');
-        $data['x_amount'] = $this->getAmount();
+        $data['xRefNum'] = $this->getTransactionReference();
+        $data['xCardNum'] = $this->getCard()->getNumber();
+        $data['xExp'] = $this->getCard()->getExpiryDate('my');
+        $data['xAmount'] = $this->getAmount();
 
         return $data;
     }

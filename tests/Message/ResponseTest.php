@@ -11,118 +11,117 @@ class ResponseTest extends TestCase
      */
     public function testConstructEmpty()
     {
-        $response = new Dovid_CardknoxResponse($this->getMockRequest(), '');
+        $response = new Response($this->getMockRequest(), '');
     }
 
     public function testAuthorizeSuccess()
     {
-        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxAuthorizeSuccess.txt');
-        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
+        $httpResponse = $this->getMockHttpResponse('AuthorizeSuccess.txt');
+        $response = new Response($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertSame('2184493132', $response->getTransactionReference());
-        $this->assertSame('This transaction has been approved.', $response->getMessage());
-        $this->assertSame('1', $response->getCode());
-        $this->assertSame('1', $response->getReasonCode());
-        $this->assertSame('GA4OQP', $response->getAuthorizationCode());
-        $this->assertSame('Y', $response->getAVSCode());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame(null, $response->getMessage());
+        $this->assertSame('A', $response->getCode());
+        $this->assertSame('Approved', $response->getReasonCode());
+        $this->assertSame('630421', $response->getAuthorizationCode());
+        $this->assertSame('NNN', $response->getAVSCode());
     }
 
     public function testAuthorizeFailure()
     {
-        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxAuthorizeFailure.txt');
-        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
+        $httpResponse = $this->getMockHttpResponse('AuthorizeFailure.txt');
+        $response = new Response($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertFalse($response->isSuccessful());
-        $this->assertSame('0', $response->getTransactionReference());
-        $this->assertSame('A valid amount is required.', $response->getMessage());
-        $this->assertSame('3', $response->getCode());
-        $this->assertSame('5', $response->getReasonCode());
-        $this->assertSame('', $response->getAuthorizationCode());
-        $this->assertSame('P', $response->getAVSCode());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame('Invalid CVV', $response->getMessage());
+        $this->assertSame('D', $response->getCode());
+        $this->assertSame('Declined', $response->getReasonCode());
+        $this->assertSame('',  $response->getAuthorizationCode());
+        $this->assertSame('NNN', $response->getAVSCode());
     }
 
     public function testCaptureSuccess()
     {
-        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxCaptureSuccess.txt');
-        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
+        $httpResponse = $this->getMockHttpResponse('CaptureSuccess.txt');
+        $response = new Response($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertSame('2184494531', $response->getTransactionReference());
-        $this->assertSame('This transaction has been approved.', $response->getMessage());
-        $this->assertSame('1', $response->getCode());
-        $this->assertSame('1', $response->getReasonCode());
-        $this->assertSame('F51OYG', $response->getAuthorizationCode());
-        $this->assertSame('P', $response->getAVSCode());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame(null, $response->getMessage());
+        $this->assertSame('A', $response->getCode());
+        $this->assertSame('Approved', $response->getReasonCode());
+        $this->assertSame('', $response->getAuthorizationCode());
+        $this->assertSame('', $response->getAVSCode());
     }
 
     public function testCaptureFailure()
     {
-        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxCaptureFailure.txt');
-        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
+        $httpResponse = $this->getMockHttpResponse('CaptureFailure.txt');
+        $response = new Response($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertFalse($response->isSuccessful());
-        $this->assertSame('0', $response->getTransactionReference());
-        $this->assertSame('The transaction cannot be found.', $response->getMessage());
-        $this->assertSame('3', $response->getCode());
-        $this->assertSame('16', $response->getReasonCode());
-        $this->assertSame('', $response->getAuthorizationCode());
-        $this->assertSame('P', $response->getAVSCode());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame('Original transaction not specified', $response->getMessage());
+        $this->assertSame('E', $response->getCode());
+        $this->assertSame('Error', $response->getReasonCode());
+        $this->assertSame('000000', $response->getAuthorizationCode());
     }
 
     public function testPurchaseSuccess()
     {
-        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxPurchaseSuccess.txt');
-        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
+        $httpResponse = $this->getMockHttpResponse('PurchaseSuccess.txt');
+        $response = new Response($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertSame('2184492509', $response->getTransactionReference());
-        $this->assertSame('This transaction has been approved.', $response->getMessage());
-        $this->assertSame('1', $response->getCode());
-        $this->assertSame('1', $response->getReasonCode());
-        $this->assertSame('JE6JM1', $response->getAuthorizationCode());
-        $this->assertSame('Y', $response->getAVSCode());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame(null , $response->getMessage());
+        $this->assertSame('A', $response->getCode());
+        $this->assertSame('Approved', $response->getReasonCode());
+        $this->assertSame('230809', $response->getAuthorizationCode());
+        $this->assertSame('YYY', $response->getAVSCode());
     }
 
     public function testPurchaseFailure()
     {
-        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxPurchaseFailure.txt');
-        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
+        $httpResponse = $this->getMockHttpResponse('PurchaseFailure.txt');
+        $response = new Response($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertFalse($response->isSuccessful());
-        $this->assertSame('0', $response->getTransactionReference());
-        $this->assertSame('A valid amount is required.', $response->getMessage());
-        $this->assertSame('3', $response->getCode());
-        $this->assertSame('5', $response->getReasonCode());
-        $this->assertSame('', $response->getAuthorizationCode());
-        $this->assertSame('P', $response->getAVSCode());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame('Invalid CVV', $response->getMessage());
+        $this->assertSame('D', $response->getCode());
+        $this->assertSame('Declined', $response->getReasonCode());
+        $this->assertSame( '', $response->getAuthorizationCode());
+        $this->assertSame('NNN', $response->getAVSCode());
     }
 
     public function testRefundSuccess()
     {
-        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxRefundSuccess.txt');
+        $httpResponse = $this->getMockHttpResponse('RefundSuccess.txt');
 
-        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
+        $response = new Response($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertSame('2184492509', $response->getTransactionReference());
-        $this->assertSame('This transaction has been approved.', $response->getMessage());
-        $this->assertSame('1', $response->getCode());
-        $this->assertSame('1', $response->getReasonCode());
-        $this->assertSame('P', $response->getAVSCode());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame(null , $response->getMessage());
+        $this->assertSame('A', $response->getCode());
+        $this->assertSame('Approved', $response->getReasonCode());
+        $this->assertSame('', $response->getAVSCode());
     }
 
     public function testRefundFailure()
     {
-        $httpResponse = $this->getMockHttpResponse('Dovid_CardknoxRefundFailure.txt');
-        $response = new Dovid_CardknoxResponse($this->getMockRequest(), $httpResponse->getBody());
+        $httpResponse = $this->getMockHttpResponse('RefundFailure.txt');
+        $response = new Response($this->getMockRequest(), $httpResponse->getBody());
 
         $this->assertFalse($response->isSuccessful());
-        $this->assertSame('0', $response->getTransactionReference());
-        $this->assertSame('The credit card number is invalid.', $response->getMessage());
-        $this->assertSame('3', $response->getCode());
-        $this->assertSame('6', $response->getReasonCode());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame('UNSUPPORTED CARD TYPE', $response->getMessage());
+        $this->assertSame('D', $response->getCode());
+        $this->assertSame('Declined', $response->getReasonCode());
         $this->assertSame('', $response->getAuthorizationCode());
-        $this->assertSame('P', $response->getAVSCode());
+        $this->assertSame('', $response->getAVSCode());
     }
 }

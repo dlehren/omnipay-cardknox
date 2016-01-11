@@ -36,85 +36,86 @@ class GatewayTest extends GatewayTestCase
         $response = $this->gateway->authorize($this->purchaseOptions)->send();
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertSame('2184493132', $response->getTransactionReference());
-        $this->assertSame('This transaction has been approved.', $response->getMessage());
+        $this->assertSame('123456789', $response->getTransactionReference());
+
     }
 
     public function testAuthorizeFailure()
     {
-        $this->setMockHttpResponse('Dovid_CardknoxAuthorizeFailure.txt');
+        $this->setMockHttpResponse('AuthorizeFailure.txt');
 
         $response = $this->gateway->authorize($this->purchaseOptions)->send();
 
         $this->assertFalse($response->isSuccessful());
-        $this->assertSame('0', $response->getTransactionReference());
-        $this->assertSame('A valid amount is required.', $response->getMessage());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame('Invalid CVV', $response->getMessage());
     }
 
     public function testCaptureSuccess()
     {
-        $this->setMockHttpResponse('Dovid_CardknoxCaptureSuccess.txt');
+        $this->setMockHttpResponse('CaptureSuccess.txt');
 
         $response = $this->gateway->capture($this->captureOptions)->send();
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertSame('2184494531', $response->getTransactionReference());
-        $this->assertSame('This transaction has been approved.', $response->getMessage());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame( null , $response->getMessage());
     }
 
     public function testCaptureFailure()
     {
-        $this->setMockHttpResponse('Dovid_CardknoxCaptureFailure.txt');
+        $this->setMockHttpResponse('CaptureFailure.txt');
 
         $response = $this->gateway->capture($this->captureOptions)->send();
 
         $this->assertFalse($response->isSuccessful());
-        $this->assertSame('0', $response->getTransactionReference());
-        $this->assertSame('The transaction cannot be found.', $response->getMessage());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame('Original transaction not specified', $response->getMessage());
     }
+
 
     public function testPurchaseSuccess()
     {
-        $this->setMockHttpResponse('Dovid_CardknoxPurchaseSuccess.txt');
+        $this->setMockHttpResponse('PurchaseSuccess.txt');
 
         $response = $this->gateway->purchase($this->purchaseOptions)->send();
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertSame('2184492509', $response->getTransactionReference());
-        $this->assertSame('This transaction has been approved.', $response->getMessage());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame(null, $response->getMessage());
     }
 
     public function testPurchaseFailure()
     {
-        $this->setMockHttpResponse('Dovid_CardknoxPurchaseFailure.txt');
+        $this->setMockHttpResponse('PurchaseFailure.txt');
 
         $response = $this->gateway->purchase($this->purchaseOptions)->send();
 
         $this->assertFalse($response->isSuccessful());
-        $this->assertSame('0', $response->getTransactionReference());
-        $this->assertSame('A valid amount is required.', $response->getMessage());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame('Invalid CVV', $response->getMessage());
     }
 
     public function testVoidSuccess()
     {
-        $this->setMockHttpResponse('Dovid_CardknoxVoidSuccess.txt');
+        $this->setMockHttpResponse('VoidSuccess.txt');
 
         $response = $this->gateway->void($this->voidOptions)->send();
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertSame('0', $response->getTransactionReference());
-        $this->assertSame('This transaction has already been voided.', $response->getMessage());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame(null, $response->getMessage());
     }
 
     public function testVoidFailure()
     {
-        $this->setMockHttpResponse('Dovid_CardknoxVoidFailure.txt');
+        $this->setMockHttpResponse('VoidFailure.txt');
 
         $response = $this->gateway->void($this->voidOptions)->send();
 
         $this->assertFalse($response->isSuccessful());
-        $this->assertSame('0', $response->getTransactionReference());
-        $this->assertSame('A valid referenced transaction ID is required.', $response->getMessage());
+        $this->assertSame('123456789', $response->getTransactionReference());
+        $this->assertSame('Original transaction not specified', $response->getMessage());
     }
 
 }

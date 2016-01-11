@@ -8,7 +8,7 @@ class AuthorizeRequestTest extends TestCase
 {
     public function setUp()
     {
-        $this->request = new Dovid_CardknoxAuthorizeRequest($this->getHttpClient(), $this->getHttpRequest());
+        $this->request = new AuthorizeRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize(
             array(
                 'clientIp' => '10.0.0.1',
@@ -23,18 +23,8 @@ class AuthorizeRequestTest extends TestCase
     {
         $data = $this->request->getData();
 
-        $this->assertSame('AUTH_ONLY', $data['x_type']);
-        $this->assertSame('10.0.0.1', $data['x_customer_ip']);
-        $this->assertSame('cust-id', $data['x_cust_id']);
-        $this->assertArrayNotHasKey('x_test_request', $data);
+        $this->assertSame('cc:authonly', $data['xCommand']);
+        $this->assertSame('10.0.0.1', $data['xIP']);
     }
 
-    public function testGetDataTestMode()
-    {
-        $this->request->setTestMode(true);
-
-        $data = $this->request->getData();
-
-        $this->assertSame('TRUE', $data['x_test_request']);
-    }
 }

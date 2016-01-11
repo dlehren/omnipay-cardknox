@@ -19,8 +19,7 @@ class Response extends AbstractResponse
    
     public function isSuccessful()
     {
-
-        return empty($this->data['xError']);
+        return ($this->data['xResult'] == 'A') ? true : false;
     }
 
     public function getCode()
