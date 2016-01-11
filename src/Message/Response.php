@@ -49,7 +49,7 @@ class Response extends AbstractResponse
         return $this->data['xAvsResultCode'];
     }
 
-     public function getTransactionReference()
+    public function getTransactionReference()
     {
         return $this->data['xRefNum'];
     }
@@ -66,5 +66,4 @@ class Response extends AbstractResponse
         }
         return null;
     }
-
 }
