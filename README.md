@@ -2,6 +2,7 @@
 
 **Cardknox driver for the Omnipay PHP payment processing library**
 
+[![Build Status](https://travis-ci.org/thephpleague/omnipay-authorizenet.png?branch=master)](https://travis-ci.org/dlehren/omnipay-cardknox)
 [![Latest Stable Version](https://poser.pugx.org/dlehren/omnipay-cardknox/version.png)](https://packagist.org/packages/dlehren/omnipay-cardknox)
 [![Total Downloads](https://poser.pugx.org/dlehren/omnipay-cardknox/d/total.png)](https://packagist.org/packages/dlehren/omnipay-cardknox)
 
