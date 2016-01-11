@@ -7,7 +7,7 @@ namespace Omnipay\Cardknox\Message;
  */
 class VoidRequest extends AbstractRequest
 {
-    protected $action = 'VOID';
+    protected $action = 'cc:void';
 
     public function getData()
     {
