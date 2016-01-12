@@ -33,13 +33,6 @@ class Gateway extends AbstractGateway
         return $this->setParameter('cardknoxKey', $value);
     }
 
-    
-    public function setEndpoints($endpoints)
-    {
-        $this->setParameter('liveEndpoint', $endpoints['live']);
-        return $this->setParameter('developerEndpoint', $endpoints['developer']);
-    }
-
     public function getLiveEndpoint()
     {
         return $this->getParameter('liveEndpoint');
@@ -50,7 +43,6 @@ class Gateway extends AbstractGateway
         return $this->setParameter('liveEndpoint', $value);
     }
 
-   
     public function authorize(array $parameters = array())
     {
         return $this->createRequest('\Omnipay\Cardknox\Message\AuthorizeRequest', $parameters);

@@ -15,6 +15,10 @@ class Response extends AbstractResponse
     {
         $this->request = $request;
         parse_str($data, $this->data);
+
+        if (count($this->data) < 6) {
+            throw new InvalidResponseException();
+        }
     }
    
     public function isSuccessful()

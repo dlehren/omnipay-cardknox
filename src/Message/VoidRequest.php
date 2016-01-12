@@ -14,6 +14,7 @@ class VoidRequest extends AbstractRequest
         $this->validate('transactionReference');
 
         $data = $this->getBaseData();
+        $data['xIP'] = $this->getClientIp();
         $data['xRefNum'] = $this->getTransactionReference();
 
         return $data;

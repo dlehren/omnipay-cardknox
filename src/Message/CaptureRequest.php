@@ -15,6 +15,7 @@ class CaptureRequest extends AbstractRequest
         $this->validate('amount', 'transactionReference');
 
         $data = $this->getBaseData();
+        $data['xIP'] = $this->getClientIp();
         $data['xAmount'] = $this->getAmount();
         $data['xRefNum'] = $this->getTransactionReference();
 

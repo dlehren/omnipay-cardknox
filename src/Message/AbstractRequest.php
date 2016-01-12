@@ -70,7 +70,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
             $data['xBillFirstName'] = $card->getBillingFirstName();
             $data['xBillLastName'] = $card->getBillingLastName();
             $data['xBillCompany'] = $card->getBillingCompany();
-            $data['xBillAddress'] = trim(
+            $data['xBillStreet'] = trim(
                 $card->getBillingAddress1()." \n".
                 $card->getBillingAddress2()
             );
@@ -85,7 +85,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
             $data['xShipFirstName'] = $card->getShippingFirstName();
             $data['xShipLastName'] = $card->getShippingLastName();
             $data['xShipCompany'] = $card->getShippingCompany();
-            $data['xShipAddress'] = trim(
+            $data['xShipStreet'] = trim(
                 $card->getShippingAddress1()." \n".
                 $card->getShippingAddress2()
             );
