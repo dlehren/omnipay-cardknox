@@ -28,6 +28,8 @@ class ResponseTest extends TestCase
         $this->assertSame('Approved', $response->getReasonCode());
         $this->assertSame('630421', $response->getAuthorizationCode());
         $this->assertSame('NNN', $response->getAVSCode());
+        $this->assertSame('4xxxxxxxxxxx2224', $response->getCard());
+        $this->assertSame('62d4fd9aebd240659d68ffaa156d1788', $response->getToken());
     }
 
     public function testAuthorizeFailure()
@@ -42,6 +44,7 @@ class ResponseTest extends TestCase
         $this->assertSame('Declined', $response->getReasonCode());
         $this->assertSame('',  $response->getAuthorizationCode());
         $this->assertSame('NNN', $response->getAVSCode());
+        $this->assertSame(null, $response->getCard());
     }
 
     public function testCaptureSuccess()
