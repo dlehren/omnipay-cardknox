@@ -37,32 +37,42 @@ abstract class AbstractRequest extends CommonAbstractRequest
 
     public function getInvoice()
     {
-        return $this->getParameter('Invoice');
+        return $this->getParameter('invoice');
     }
 
     public function setInvoice($value)
     {
-        return $this->setParameter('Invoice', $value);
+        return $this->setParameter('invoice', $value);
     }
 
     public function getPONumber()
     {
-        return $this->getParameter('PONumber');
+        return $this->getParameter('poNumber');
     }
 
     public function setPONumber($value)
     {
-        return $this->setParameter('PONumber', $value);
+        return $this->setParameter('poNumber', $value);
     }
 
     public function getTax()
     {
-        return $this->getParameter('Tax');
+        return $this->getParameter('tax');
     }
 
     public function setTax($value)
     {
-        return $this->setParameter('Tax', $value);
+        return $this->setParameter('tax', $value);
+    }
+
+    public function getFax()
+    {
+        return $this->getParameter('fax');
+    }
+
+    public function setFax($value)
+    {
+        return $this->setParameter('fax', $value);
     }
  
     /**
@@ -110,7 +120,8 @@ abstract class AbstractRequest extends CommonAbstractRequest
             $data['xBillState'] = $card->getBillingState();
             $data['xBillZip'] = $card->getBillingPostcode();
             $data['xBillCountry'] = $card->getBillingCountry();
-            $data['xBillPhone'] = $card->getBillingPhone();
+            $data['xBillPhone'] = $card->getBillingPhone();            
+            $data['xFax'] = $this->getFax();
             $data['xEmail'] = $card->getEmail();
 
             // customer shipping details
