@@ -74,7 +74,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
     {
         return $this->setParameter('fax', $value);
     }
- 
+
     /**
      * Base data used only for the  API.
      */
@@ -86,7 +86,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
         $data['xSoftwareName'] = 'omnipay';
         $data['xSoftwareVersion'] = '1';
         $data['xCommand'] = $this->action;
-       
+
         return $data;
     }
 
@@ -120,7 +120,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
             $data['xBillState'] = $card->getBillingState();
             $data['xBillZip'] = $card->getBillingPostcode();
             $data['xBillCountry'] = $card->getBillingCountry();
-            $data['xBillPhone'] = $card->getBillingPhone();            
+            $data['xBillPhone'] = $card->getBillingPhone();
             $data['xFax'] = $this->getFax();
             $data['xEmail'] = $card->getEmail();
 
