@@ -20,7 +20,7 @@ class AuthorizeRequest extends AbstractRequest
         $data['xCardNum'] = $this->getCard()->getNumber();
         $data['xExp'] = $this->getCard()->getExpiryDate('my');
         $data['xCVV'] = $this->getCard()->getCvv();
-        
+
         return array_merge($data, $this->getBillingData());
     }
 }
