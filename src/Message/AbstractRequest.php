@@ -37,7 +37,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
 
     public function getInvoice()
     {
-        return $this->getParameter($value);
+        return $this->getParameter('Invoice');
     }
 
     public function setInvoice($value)
@@ -47,7 +47,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
 
     public function getPONumber()
     {
-        return $this->getParameter($value);
+        return $this->getParameter('PONumber');
     }
 
     public function setPONumber($value)
@@ -57,7 +57,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
 
     public function getTax()
     {
-        return $this->getParameter($value);
+        return $this->getParameter('Tax');
     }
 
     public function setTax($value)
