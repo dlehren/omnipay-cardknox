@@ -13,7 +13,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
     /**
      * Custom field name to send the transaction ID to the notify handler.
      */
-    const TRANSACTION_ID_PARAM = 'omnipay_transaction_id';
+    // const TRANSACTION_ID_PARAM = 'xCustom02';
 
     public function getCardknoxKey()
     {
@@ -25,7 +25,6 @@ abstract class AbstractRequest extends CommonAbstractRequest
         return $this->setParameter('cardknoxKey', $value);
     }
 
-   
     public function getLiveEndpoint()
     {
         return $this->getParameter('liveEndpoint');
@@ -36,7 +35,36 @@ abstract class AbstractRequest extends CommonAbstractRequest
         return $this->setParameter('liveEndpoint', $value);
     }
 
-   
+    public function getInvoice()
+    {
+        return $this->getParameter($value);
+    }
+
+    public function setInvoice($value)
+    {
+        return $this->setParameter('Invoice', $value);
+    }
+
+    public function getPONumber()
+    {
+        return $this->getParameter($value);
+    }
+
+    public function setPONumber($value)
+    {
+        return $this->setParameter('PONumber', $value);
+    }
+
+    public function getTax()
+    {
+        return $this->getParameter($value);
+    }
+
+    public function setTax($value)
+    {
+        return $this->setParameter('Tax', $value);
+    }
+ 
     /**
      * Base data used only for the  API.
      */
@@ -56,12 +84,16 @@ abstract class AbstractRequest extends CommonAbstractRequest
     {
         $data = array();
         $data['xAmount'] = $this->getAmount();
-
+        $data['xTax'] = $this->getTax();
         // This is deprecated. The invoice number field is reserved for the invoice number.
         $data['xOrderID'] = $this->getTransactionId();
 
+        $data['xPONum'] = $this->getPONumber();
+
+        $data['xInvoice'] = $this->getInvoice();
+
         // A custom field can be used to pass over the merchant site transaction ID.
-        //$data[static::TRANSACTION_ID_PARAM] = $this->getTransactionId();
+        // $data[static::TRANSACTION_ID_PARAM] = $this->getTransactionId();
 
         $data['xDescription'] = $this->getDescription();
 
